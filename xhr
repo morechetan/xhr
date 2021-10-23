@@ -18,15 +18,19 @@ xhr.onload = function () {
 
   if (xhr.status >= 200 && xhr.status <= 300) {
     let data = JSON.parse(this.response);
-    for(let i=0;i<data.length;i++){
-      console.log("Id:" + data[i].id);
-      console.log("Name:" + data[i].name);
-      console.log("Email:" + data[i].email);
-      console.log("city:" + data[i].address.city);
-      console.log("phone:" + data[i].phone);
-      console.log("CompanyName:" + data[i].company.name);
+    
+    //console.log(data);
 
-    }
+    for(let i=0;i<data.length;i++){
+      console.log(`
+      Id: ${data[i].id}
+      Name: ${data[i].name}
+      Email: ${data[i].email}
+      City: ${data[i].address.city}
+      Phone: ${data[i].phone}
+      CompanyName: ${data[i].company.name}
+      `);
+     }
 
   } else {
     console.log(this.response);
